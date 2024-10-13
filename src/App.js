@@ -1,5 +1,6 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+//import { Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import Shop from "./Shop";
 import About from "./About";
 import Home from "./Home";
@@ -22,7 +23,7 @@ function App() {
     JSON.parse(localStorage.getItem("cartItems")) || []
   );
 
-  //useEffect called once at the programs opening because there are no dependencies liste in the array below.
+  //useEffect called once at the programs opening because there are no dependencies listed in the array below.
   useEffect(() => {
     const fetchItems = async () => {
       //try block define the response as the url with the request type
@@ -41,7 +42,7 @@ function App() {
     fetchItems();
   }, []);
 
-  // useEffect is triggered anytime cartItems changes, thus when cart items is updated it is automatcally updated to local storage.
+  // useEffect is triggered anytime cartItems changes, thus when cart items is updated it is automatically updated to local storage.
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
@@ -74,39 +75,41 @@ function App() {
 
   return (
     <div className="App fadeIn">
-      <Nav cartItems={cartItems} search={search} setSearch={setSearch} />
+      <Router>
+        <Nav cartItems={cartItems} search={search} setSearch={setSearch} />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route
-          path="/shop"
-          element={
-            <Shop
-              items={items}
-              cartItems={cartItems}
-              setCartItems={setCartItems}
-              search={search}
-              setSearch={setSearch}
-            />
-          }
-        />
-        <Route path="/about" element={<About />} />
-        <Route
-          path="/cart"
-          element={
-            <ShoppingCart
-              uniqueItems={uniqueItems}
-              duplicateItems={duplicateItems}
-              items={items}
-              cartItems={cartItems}
-              setCartItems={setCartItems}
-              subTotal={subTotal}
-              setSubTotal={setSubTotal}
-            />
-          }
-        />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route
+            path="/shop"
+            element={
+              <Shop
+                items={items}
+                cartItems={cartItems}
+                setCartItems={setCartItems}
+                search={search}
+                setSearch={setSearch}
+              />
+            }
+          />
+          <Route path="/about" element={<About />} />
+          <Route
+            path="/cart"
+            element={
+              <ShoppingCart
+                uniqueItems={uniqueItems}
+                duplicateItems={duplicateItems}
+                items={items}
+                cartItems={cartItems}
+                setCartItems={setCartItems}
+                subTotal={subTotal}
+                setSubTotal={setSubTotal}
+              />
+            }
+          />
+        </Routes>
+      </Router>
     </div>
   );
 }
