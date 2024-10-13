@@ -8,7 +8,7 @@ import DesktopMenu from "./DesktopMenu";
 const Nav = ({ cartItems, search, setSearch }) => {
   return (
     <>
-      <nav className="Nav fadeIn">
+      <nav className="Nav">
         <div className="companyDetails">
           <CompanyIcon />
           <CompanyTitle />

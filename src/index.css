@@ -217,6 +217,18 @@ body {
   transition: transform 0.2s;
 }
 
+.call-to-action-button {
+  background-color: #863a67;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 15px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.2s;
+}
+
 /* Scale down slightly when pressed */
 .round-button:active {
   transform: scale(0.9); /* Scale down slightly */

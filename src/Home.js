@@ -1,7 +1,7 @@
 import React from "react";
 import CallToAction from "./CallToAction";
 
-import homepageHero from "./Images/HomepageHero.jpg";
+import homepageHero from "./Images/HomepageHero.webp";
 
 function Home() {
   const currentYear = new Date().getFullYear();

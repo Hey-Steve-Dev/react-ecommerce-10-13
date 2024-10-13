@@ -9,7 +9,10 @@ const CallToAction = () => {
   };
 
   return (
-    <button className="callToAction round-button" onClick={handleClick}>
+    <button
+      className="callToAction call-to-action-button"
+      onClick={handleClick}
+    >
       Shop
     </button>
   );
