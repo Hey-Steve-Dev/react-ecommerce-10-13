@@ -1,0 +1,7 @@
+<script type="text/javascript">
+  // Redirect all 404s to index.html
+  var pathname = window.location.pathname;
+  if (pathname !== "/" && pathname.indexOf("/index.html") === -1) {
+    window.location.replace("/?p=" + pathname.substr(1));
+  }
+</script>
